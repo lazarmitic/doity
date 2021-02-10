@@ -15,7 +15,8 @@
 		"paths": {
 			"@models/*": ["./models/*"],
 			"@store/*": ["./store/*"],
-			"@service/*": ["./service/*"]
+			"@service/*": ["./service/*"],
+			"@ui-elements/*": ["./components/ui-elements/*"]
 		}
 	},
 	"include": ["src/**/*"],
