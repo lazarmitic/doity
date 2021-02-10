@@ -1,3 +1,5 @@
+import path from 'path';
+
 import svelte from 'rollup-plugin-svelte';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -5,6 +7,7 @@ import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
+import alias from '@rollup/plugin-alias';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -18,10 +21,31 @@ export default {
 	},
 	plugins: [
 		svelte({
-			preprocess: sveltePreprocess({ sourceMap: !production }),
+			preprocess: sveltePreprocess({
+				sourceMap: !production,
+				postcss: {
+					plugins: [
+						require('tailwindcss'),
+						require('autoprefixer')
+					]
+				}
+			}),
 			compilerOptions: {
 				dev: !production
 			}
+		}),
+		alias({
+			entries: [{
+					find: 'models',
+					replacement: path.resolve(__dirname, 'src/models')
+				}, {
+					find: 'store',
+					replacement: path.resolve(__dirname, 'src/store')
+				}, {
+					find: 'services',
+					replacement: path.resolve(__dirname, 'src/services')
+				}
+			]
 		}),
 		css({
 			output: 'bundle.css'

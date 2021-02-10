@@ -1,11 +1,15 @@
 <script lang="ts">
+	// Components
 	import TaskListItem from './task-list-item/task-list-item.svelte';
 
-	import type Task from './../../../models/task';
+	// Models
+	import type Task from 'models/task';
 
-	import { tasks } from './../../../store/task-store';
+	// Store
+	import { tasks } from 'store/task-store';
 
-	import TaskService from '../../../services/task-service';
+	// Service
+	import TaskService from 'services/task-service';
 
 	let taskList: Task[];
 
@@ -23,7 +27,7 @@
 	loadTasks();
 </script>
 
-<div>
+<div class='mt-10'>
 	{#each taskList as task}
 		<TaskListItem task={task} />
 	{/each}

@@ -10,7 +10,13 @@
 		"strict": false,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true
+		"forceConsistentCasingInFileNames": true,
+		"baseUrl": "./src",
+		"paths": {
+			"@models/*": ["./models/*"],
+			"@store/*": ["./store/*"],
+			"@service/*": ["./service/*"]
+		}
 	},
 	"include": ["src/**/*"],
 	"exclude": [

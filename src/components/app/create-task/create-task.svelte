@@ -1,5 +1,7 @@
 <script lang="ts">
-	import Task from '../../../models/task';
+	import Button from './../../ui-elements/button.svelte';
+
+	import Task from 'models/task';
 
 	import TaskService from './../../../services/task-service';
 
@@ -26,10 +28,7 @@
 	}
 </script>
 
-<div>
-	<input type='text' bind:value={taskName} />
-	<button on:click={createTask}>
-		Create Task
-	</button>
+<div class='flex flex-col items-center'>
+	<input placeholder='Enter task name' class='w-96 bg-gray-600 text-gray-200 outline-none p-1 mb-2' type='text' bind:value={taskName} />
+	<Button label='Create Task' onClick={createTask} />
 </div>
-

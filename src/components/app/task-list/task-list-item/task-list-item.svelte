@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type Task from "../../../../models/task";
 
+	import Button from './../../../ui-elements/button.svelte';
+
 	import TaskService from './../../../../services/task-service';
 
 	import {tasks} from './../../../../store/task-store';
@@ -33,15 +35,15 @@
 <style>
 	p {
 		margin-right: 5px;
+		width: 500px;
 	}
 
 	div {
 		display: flex;
 		align-items: center;
-	}
-
-	button {
-		margin-left: 5px;
+		width: 90%;
+		margin: 5px 0px 5px 36px;
+		box-sizing: border-box;
 	}
 
 	.finished-task {
@@ -49,18 +51,15 @@
 	}
 </style>
 
-<div>
-	<p class:finished-task={task.completed}>{task.name}</p>
+<div class='space-x-10'>
+	<p class:finished-task={task.completed} class='dark:text-gray-200'>
+		{task.name}
+	</p>
 	{#if !task.completed}
-		<button on:click={markAsCompleted}>
-			Mark as completed
-		</button>
+		<Button label='Mark as completed' onClick={markAsCompleted} />
 	{:else}
-		<button on:click={markAsNotCompleted}>
-			Mark as not completed
-		</button>
+		<Button label='Mark as not completed' onClick={markAsNotCompleted} />
 	{/if}
-	<button on:click={onDelete}>
-		Delete
-	</button>
+
+	<Button label='Delete' onClick={onDelete} />
 </div>
