@@ -4,8 +4,10 @@ export default class Task {
 	public _id = uuid();
 	public name = '';
 	public completed = false;
+	public estimate = 0;
 
-	constructor(name: string) {
+	constructor(name: string, estimate: number) {
 		this.name = name;
+		this.estimate = estimate;
 	}
 }

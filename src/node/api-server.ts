@@ -43,7 +43,8 @@ app.post<{}, {}, Task>('/api/task', async (req, res) => {
 	await taskCollection.insertOne({
 		_id: task._id,
 		name: task.name,
-		completed: task.completed
+		completed: task.completed,
+		estimate: task.estimate
 	});
 
 	res.send('success');

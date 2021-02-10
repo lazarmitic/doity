@@ -16,7 +16,7 @@
 			"@models/*": ["./models/*"],
 			"@store/*": ["./store/*"],
 			"@service/*": ["./service/*"],
-			"@ui-elements/*": ["./components/ui-elements/*"]
+			"@components/*": ["./components/*"]
 		}
 	},
 	"include": ["src/**/*"],

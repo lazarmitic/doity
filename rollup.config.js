@@ -45,8 +45,8 @@ export default {
 					find: 'services',
 					replacement: path.resolve(__dirname, 'src/services')
 				}, {
-					find: 'ui-elements',
-					replacement: path.resolve(__dirname, 'src/components/ui-elements')
+					find: 'components',
+					replacement: path.resolve(__dirname, 'src/components')
 				}
 			]
 		}),
